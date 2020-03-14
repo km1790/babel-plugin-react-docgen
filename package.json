@@ -1,13 +1,11 @@
 {
-  "version": "4.1.0",
-  "name": "babel-plugin-react-docgen",
-  "description": "Babel plugin to add react-docgen info into your code",
-  "repository": "https://github.com/storybooks/babel-plugin-react-docgen",
-  "author": "Madushan Nishantha <j.l.madushan@gmail.com>",
-  "contributors": [
-    "Charles Lehnert"
-  ],
+  "version": "4.1.1",
+  "name": "@kutils/babel-plugin-react-docgen",
+  "description": "Babel plugin to add react-docgen info into your code with custom resolver capability",
+  "repository": "https://github.com/km1790/babel-plugin-react-docgen",
+  "author": "Madushan Nishantha <j.l.madushan@gmail.com>, Kinshuk Makkad <km1790@nyu.edu>",
   "main": "lib/index.js",
+  "private": false,
   "files": [
     "*.md",
     "lib/**/*"

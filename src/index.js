@@ -3,6 +3,7 @@ import * as ReactDocgen from 'react-docgen';
 import * as reactDocgenHandlers from 'react-docgen/dist/handlers';
 import actualNameHandler from './actualNameHandler';
 import { relativePath } from './relativePath';
+import * as Path from 'path';
 
 const defaultHandlers = Object.values(reactDocgenHandlers).map(handler => handler);
 
@@ -26,7 +27,11 @@ function injectReactDocgenInfo(path, state, code, t) {
   try {
     let resolver = ReactDocgen.resolver.findAllExportedComponentDefinitions;
     if (state.opts.resolver) {
-      resolver = ReactDocgen.resolver[state.opts.resolver];
+      if(ReactDocgen.resolver.hasOwnProperty(state.opts.resolver)) {
+        resolver = ReactDocgen.resolver[state.opts.resolver];
+      } else {
+        resolver = require(Path.resolve("./", state.opts.resolver));
+      }
     }
 
     let customHandlers = [];
@@ -40,7 +45,6 @@ function injectReactDocgenInfo(path, state, code, t) {
     docgenResults = ReactDocgen.parse(code, resolver, handlers, {
       filename,
     });
-
     if (state.opts.removeMethods) {
       docgenResults.forEach(function(docgenResult) {
         delete docgenResult.methods;

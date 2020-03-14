@@ -112,6 +112,27 @@ So, we allow you to collect all the docgen info into a global collection. To do 
 }
 ```
 
+Additionally, you can provide custom resolver with this plugin:
+
+> Make sure you have added the custom resolver package or defined its path relative to your project
+
+```js
+{
+  "plugins":[
+    [
+      "babel-plugin-react-docgen",
+      {
+        "DOC_GEN_COLLECTION_NAME": "MY_REACT_DOCS",
+        "resolver": "react-docgen-annotation-resolver", 
+        "removeMethods": true, // optional (default: false)
+        "handlers:": ["react-docgen-deprecation-handler"] // optional array of custom handlers (use the string name of the package in the array)
+      }
+    ]
+  ]
+}
+```
+
+
 Then you need to create a global variable(an object) in your app called `MY_REACT_DOCS` before any code get's executed.
 Then we'll save them into that object. We do it by adding a code block like this to the transpiled file:
 
