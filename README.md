@@ -1,7 +1,8 @@
 # babel-plugin-react-docgen
 
-## WARNING! This is a forked version of https://github.com/storybookjs/babel-plugin-react-docgen 
-> For more info refer to issue: https://github.com/storybookjs/babel-plugin-react-docgen/issues/82
+> #### WARNING! This is a forked version of https://github.com/storybookjs/babel-plugin-react-docgen 
+> #### For more info refer to issue: https://github.com/storybookjs/babel-plugin-react-docgen/issues/82
+> - #### This version allows you to define custom resolver
 
 [react-docgen](https://github.com/reactjs/react-docgen) allows you to write propType descriptions, class descriptions and access propType metadata programatically.
 
@@ -90,7 +91,7 @@ Use it inside your `.babelrc`
 
 |  option  |  description   |  default   |
 | --- | --- | --- |
-|   resolver  |   [react-docgen](https://github.com/reactjs/react-docgen) has 3 built in resolvers which may be used. Resolvers define how/what the doc generator will inspect. You may inspect the existing resolvers in [react-docgen/tree/master/src/resolver](https://github.com/reactjs/react-docgen/tree/master/src/resolver).  | ```"findAllExportedComponentDefinition"``` |
+|   resolver  |   [react-docgen](https://github.com/reactjs/react-docgen) has 3 built in resolvers which may be used. Resolvers define how/what the doc generator will inspect. You may inspect the existing resolvers in [react-docgen/tree/master/src/resolver](https://github.com/reactjs/react-docgen/tree/master/src/resolver).  You can also define custom resolver by defining relative path to your resolver| ```"findAllExportedComponentDefinition"``` |
 |   removeMethods  | optionally remove docgen information about methods |   ```false```  |
 
 ## Collect All Docgen Info
@@ -126,7 +127,7 @@ Additionally, you can provide custom resolver with this plugin:
       "babel-plugin-react-docgen",
       {
         "DOC_GEN_COLLECTION_NAME": "MY_REACT_DOCS",
-        "resolver": "react-docgen-annotation-resolver", 
+        "resolver": "./resolver/my-custom-resolver.js", 
         "removeMethods": true, // optional (default: false)
         "handlers:": ["react-docgen-deprecation-handler"] // optional array of custom handlers (use the string name of the package in the array)
       }
