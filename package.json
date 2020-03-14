@@ -1,5 +1,5 @@
 {
-  "version": "4.1.1",
+  "version": "4.1.2",
   "name": "@kutils/babel-plugin-react-docgen",
   "description": "Babel plugin to add react-docgen info into your code with custom resolver capability",
   "repository": "https://github.com/km1790/babel-plugin-react-docgen",
